@@ -1,0 +1,157 @@
+$ git clone https://github.com/OscarCDLR/libro.git
+
+$ ls
+
+$ cd libro
+
+$ git log
+fatal: your current branch 'master' does not have any commits yet
+
+
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+
+$ cat > indice.txt
+Capítulo 1: Introducción a Git
+Capítulo 2: Flujo de trabajo básico
+Capítulo 3: Repositorios remotos
+
+
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        indice.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+
+$ git add .
+warning: LF will be replaced by CRLF in indice.txt.
+The file will have its original line endings in your working directory
+
+
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   indice.txt
+
+
+$ git commit -m "Añadido índice del libro."
+[master (root-commit) e4c4cf2] Añadido índice del libro.
+ 1 file changed, 3 insertions(+)
+ create mode 100644 indice.txt
+
+
+$ git status
+On branch master
+Your branch is based on 'origin/master', but the upstream is gone.
+  (use "git branch --unset-upstream" to fixup)
+
+nothing to commit, working tree clean
+
+
+$ nano indice.txt
+
+
+$ cat indice.txt
+Capítulo 1: Introducción a Git
+Capítulo 2: Flujo de trabajo básico
+Capítulo 3: Gestión de ramas
+Capítulo 4: Repositorios remotos
+
+
+$ git status
+On branch master
+Your branch is based on 'origin/master', but the upstream is gone.
+  (use "git branch --unset-upstream" to fixup)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   indice.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+$ git add .
+warning: LF will be replaced by CRLF in indice.txt.
+The file will have its original line endings in your working directory
+
+
+$ git commit -m "Añadido capítulo 3 sobre gestión de ramas"
+[master 77b09d8] Añadido capítulo 3 sobre gestión de ramas
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+
+$ git log
+commit 77b09d8c78282b92e829a18ecb47d229dafe54f2 (HEAD -> master)
+Author: ocarrillor <ocarrillo7@ucol.mx>
+Date:   Wed Oct 26 18:55:33 2022 -0500
+
+    Añadido capítulo 3 sobre gestión de ramas
+
+commit e4c4cf22ba8a09fe35a8f38680bb11be70ea1e4a
+Author: ocarrillor <ocarrillo7@ucol.mx>
+Date:   Wed Oct 26 18:45:03 2022 -0500
+
+    Añadido índice del libro.
+
+
+$ mkdir capitulos
+
+
+$ cd capitulos/
+
+
+$ cat > capitulo1.txt
+Git es un sistema de control de versiones ideado por Linus Torvalds.
+
+
+$ cd ..
+
+
+$ git add .
+warning: LF will be replaced by CRLF in capitulos/capitulo1.txt.
+The file will have its original line endings in your working directory
+
+
+$ git commit -m "Añadido capítulo 1."
+[master afecb06] Añadido capítulo 1.
+ 1 file changed, 1 insertion(+)
+ create mode 100644 capitulos/capitulo1.txt
+
+
+$ git log
+commit afecb06208cfc25c30cf2e8695597b072f5850a6 (HEAD -> master)
+Author: ocarrillor <ocarrillo7@ucol.mx>
+Date:   Wed Oct 26 19:07:32 2022 -0500
+
+    Añadido capítulo 1.
+
+commit 77b09d8c78282b92e829a18ecb47d229dafe54f2
+Author: ocarrillor <ocarrillo7@ucol.mx>
+Date:   Wed Oct 26 18:55:33 2022 -0500
+
+    Añadido capítulo 3 sobre gestión de ramas
+
+commit e4c4cf22ba8a09fe35a8f38680bb11be70ea1e4a
+Author: ocarrillor <ocarrillo7@ucol.mx>
+Date:   Wed Oct 26 18:45:03 2022 -0500
+
+    Añadido índice del libro.
+
+
+
